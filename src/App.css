@@ -3,7 +3,15 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  animation: App-logo-spin infinite 20s linear;
+  height: 25vmin;
+  pointer-events: none;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.text-center{
+  text-align: center;
 }
 
 .App-header {
