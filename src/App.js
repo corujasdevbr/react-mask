@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { cpfMask, cnpjMask, cepMask, celularMask, telefoneMask } from './mask'
+import { cpfMask, cnpjMask, cepMask, celularMask, telefoneMask, moedarealMask } from './mask'
 import { Container, Row, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './App.css';
 
@@ -10,6 +10,7 @@ function App() {
   const [cep, setCep] = useState();
   const [celular, setCelular] = useState();
   const [telefone, setTelefone] = useState();
+  const [moedaReal, setMoedaReal] = useState();
 
   return (
     <Container>
@@ -29,7 +30,7 @@ function App() {
                   <Input
                     maxLength='14'
                     name='cpf'
-                    value={cpf}
+                    value={cpf || ''}
                     placeholder="___.___.___-__"
                     onChange={(e) => setCpf(cpfMask(e.target.value))}
                   />
@@ -41,7 +42,7 @@ function App() {
                   <Input
                     maxLength='18'
                     name='cnpj'
-                    value={cnpj}
+                    value={cnpj || ''}
                     placeholder="___.___.___/____-__"
                     onChange={(e) => setCnpj(cnpjMask(e.target.value))}
                   />
@@ -53,20 +54,31 @@ function App() {
                   <Input
                     maxLength='9'
                     name='cep'
-                    value={cep}
+                    value={cep || ''}
                     placeholder="_____-___"
                     onChange={(e) => setCep(cepMask(e.target.value))}
                   />
                 </FormGroup>
               </Col>
-
+              <Col>
+                <FormGroup>
+                  <Label for="cep">Moeda Real</Label>
+                  <Input
+                    maxLength='9'
+                    name='moedaReal'
+                    value={moedaReal || ''}
+                    placeholder="_.__"
+                    onChange={(e) => setMoedaReal(moedarealMask(e.target.value))}
+                  />
+                </FormGroup>
+              </Col>
               <Col>
                 <FormGroup>
                   <Label for="celular">Celular</Label>
                   <Input
                     maxLength='15'
                     name='celular'
-                    value={celular}
+                    value={celular || ''}
                     placeholder="(__) _____-____"
                     onChange={(e) => setCelular(celularMask(e.target.value))}
                   />
@@ -78,7 +90,7 @@ function App() {
                   <Input
                     maxLength='14'
                     name='telefone'
-                    value={telefone}
+                    value={telefone || ''}
                     placeholder="(__) ____-____"
                     onChange={(e) => setTelefone(telefoneMask(e.target.value))}
                   />

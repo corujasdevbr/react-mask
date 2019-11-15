@@ -40,3 +40,13 @@ export const telefoneMask = value => {
         .replace(/(\d{4})(\d)/, '$1-$2')
         .replace(/(-\d{4})\d+?$/, '$1')
 }
+
+export const moedarealMask = value => {
+
+    var moeda = value.replace(/\D/g, '')
+        .replace(/(\d{1,2})$/, ',$1')
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+
+    return (moeda !== '' ? moeda : '');
+
+}
